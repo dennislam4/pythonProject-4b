@@ -35,11 +35,9 @@ def box_sort(box_list):
     """Uses insertion algotrithm to sort list of boxes from greatest to lowest volume"""
     for box_index in range(1, len(box_list)):
         box_value = box_list[box_index]
-        box_volume = box_index - 1
-        while box_volume >= 0:
+        while box_volume >= 0 and box_list[box_index].volume() < box_value.volume():
             if box_value < box_list[box_volume]:
                 box_list[box_volume + 1] = box_list[box_volume]
                 box_list[box_volume] = box_value
                 box_volume = box_volume - 1
-            else:
-                break
+
